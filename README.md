@@ -45,9 +45,15 @@
 
 ## 保持一致
 
-项目目录名称（`resources/project/xxx`）= 任务文件名称（`gulp/tasks/xxx.js`） = 任务文件内的变量名（`var projectName = 'xxx';`）
+项目目录名称（`resources/project/xxx`）
 
-其中，`xxx`需一致。
+*等于*
+
+任务文件名称（`gulp/tasks/xxx.js`） 
+
+*等于*
+
+任务文件内的变量名（`var projectName = 'xxx';`）
 
 ## 维护
 
