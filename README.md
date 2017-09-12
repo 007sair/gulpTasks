@@ -1,5 +1,3 @@
-# 重构reset
-
 ## 目录结构
 
 ``` ruby
@@ -25,7 +23,7 @@
 
 当一个目录下的项目过于繁杂时，我们不可能把所有的任务（task）都写入一个`gulpfile.js`内。
 
-需要有一个合理的_目录结构_与_思想_来管理项目与任务之间的_关联_问题。
+需要有一个合理的*目录结构*与*思想*来管理项目与任务之间的*关联*问题。
 
 **思路如下：**
 
@@ -33,16 +31,17 @@
 - **思想：** 启动特定gulp命令，其他项目不受干扰；
 - **关联：** 项目目录名称与任务名称保持一致。
 
+## 举例
+
+- 开发`groupon`项目时，启动`gulp groupon`，任务都写在`gulp/tasks/groupon.js`内；
+- 开发`plus`项目时，启动`gulp plus`，任务都写在`gulp/tasks/plus.js`内。
+
 ## 开发流程
 
 1. 在`resources/project/`下创建一个项目目录
 2. 在`gulp/tasks/`下创建一个`xxx.js`文件
 3. 修改`xxx.js`内容，如`projectName`
 
-## 举例
-
-- 开发`groupon`项目时，启动`gulp groupon`，任务都写在`gulp/tasks/groupon.js`内；
-- 开发`plus`项目时，启动`gulp plus`，任务都写在`gulp/tasks/plus.js`内。
 
 ## 保持一致
 
