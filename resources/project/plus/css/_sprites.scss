@@ -1,0 +1,114 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$icon-clear-name: 'icon-clear';
+$icon-clear-x: 0px;
+$icon-clear-y: 0px;
+$icon-clear-offset-x: 0px;
+$icon-clear-offset-y: 0px;
+$icon-clear-width: 32px;
+$icon-clear-height: 32px;
+$icon-clear-total-width: 84px;
+$icon-clear-total-height: 84px;
+$icon-clear-image: 'dist/plus/img/icon-sprite.png';
+$icon-clear: (0px, 0px, 0px, 0px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-clear', );
+$icon-fdj-name: 'icon-fdj';
+$icon-fdj-x: 52px;
+$icon-fdj-y: 0px;
+$icon-fdj-offset-x: -52px;
+$icon-fdj-offset-y: 0px;
+$icon-fdj-width: 32px;
+$icon-fdj-height: 32px;
+$icon-fdj-total-width: 84px;
+$icon-fdj-total-height: 84px;
+$icon-fdj-image: 'dist/plus/img/icon-sprite.png';
+$icon-fdj: (52px, 0px, -52px, 0px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-fdj', );
+$icon-fire-name: 'icon-fire';
+$icon-fire-x: 0px;
+$icon-fire-y: 52px;
+$icon-fire-offset-x: 0px;
+$icon-fire-offset-y: -52px;
+$icon-fire-width: 32px;
+$icon-fire-height: 32px;
+$icon-fire-total-width: 84px;
+$icon-fire-total-height: 84px;
+$icon-fire-image: 'dist/plus/img/icon-sprite.png';
+$icon-fire: (0px, 52px, 0px, -52px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-fire', );
+$icon-time-name: 'icon-time';
+$icon-time-x: 52px;
+$icon-time-y: 52px;
+$icon-time-offset-x: -52px;
+$icon-time-offset-y: -52px;
+$icon-time-width: 32px;
+$icon-time-height: 32px;
+$icon-time-total-width: 84px;
+$icon-time-total-height: 84px;
+$icon-time-image: 'dist/plus/img/icon-sprite.png';
+$icon-time: (52px, 52px, -52px, -52px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-time', );
+$spritesheet-width: 84px;
+$spritesheet-height: 84px;
+$spritesheet-image: 'dist/plus/img/icon-sprite.png';
+$spritesheet-sprites: ($icon-clear, $icon-fdj, $icon-fire, $icon-time, );
+$spritesheet: (84px, 84px, 'dist/plus/img/icon-sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -1,0 +1,74 @@
+/**
+ * 弹层样式
+ */
+
+$mask_z_index: 1000;
+
+
+.pop-mask {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1000;
+}
+
+.pop-promise {
+	position: fixed;
+	z-index: $mask_z_index + 5;
+	background-color: #fff;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	font-size: rem(28);
+	transform: translateY(110%);
+	transition: transform 0.5s ease;
+	h3 {
+		height: rem(86);
+		line-height: rem(86);
+		border-bottom: 1px solid $color-border;
+		font-size: rem(30);
+		text-align: center;
+		font-weight: normal;
+	}
+	.cont {
+		padding: rem(25);
+		li {
+			position: relative;
+			margin-bottom: rem(25);
+			padding-left: rem(20);
+			aside {
+				color: #999;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				top: rem(15);
+				left: 0;
+				width: rem(8);
+				height: rem(8);
+				background-color: #ff4a4a;
+				border-radius: 100%;
+			}
+		}
+		.tip {
+			padding-left: rem(20);
+			color: $color-red;
+		}
+	}
+	.btn-close {
+		display: block;
+		height: rem(96);
+		line-height: rem(96);
+		background-color: $color-red;
+		text-align: center;
+		font-size: rem(34);
+		color: #fff;
+	}
+	&.show {
+		transform: translateY(0);
+	}
+}

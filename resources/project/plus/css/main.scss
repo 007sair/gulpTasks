@@ -1,0 +1,40 @@
+/**
+ * Tools
+ */
+
+@import "base/mixin";
+@import "base/rem";
+@import "base/css3";
+
+/**
+ * Init Styles
+ */
+
+@import "base/reset"; //样式重置
+@import "base/media"; //媒体查询
+@import "common"; //公共样式
+
+/**
+ * Vars
+ */
+
+$color-red: #ff4a4a;
+$color-border: #ebebeb;
+$rmb: '\00A5'; //字符串：¥
+
+/**
+* Images Url
+*/
+
+$online: true;
+$url-icons: '../images/icons.png'; //自建icon
+$sprite-icons: '../images/icon-sprite.png'; //sprite生成
+@if $online {
+	$url-icons: '//img.miyabaobei.com/d1/p5/2017/04/27/34/5a/345a7747076eee2b8b52e6196cc9936b626362613.png';
+	$sprite-icons: '//img.miyabaobei.com/d1/p5/2017/09/04/9e/d5/9ed5e3aa156fa26a06f695717e3c493c957207675.png';
+}
+
+div {
+	position: relative;
+	zoom: 1;
+}
