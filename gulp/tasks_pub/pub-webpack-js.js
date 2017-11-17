@@ -15,6 +15,9 @@ module.exports = function (gulp, config, $, args) {
 
     return function (projectName, obj) {
 
+        let dllTaskName = "build-dll-js:" + projectName;
+        let taskName = "build-js:" + projectName;
+
         //获取多页面的每个入口文件，用于配置中的entry
         var srcDir = path.resolve(process.cwd(), 'resources/project/' + projectName);
         function getEntry() {
@@ -31,7 +34,7 @@ module.exports = function (gulp, config, $, args) {
         }
 
         //引用webpack对公共库进行dll打包，生成vendor.js
-        gulp.task("build-dll-js:" + projectName, function (callback) {
+        gulp.task(dllTaskName, function (callback) {
             webpack({
                 entry: {
                     vendor: obj.vendor,
@@ -61,7 +64,7 @@ module.exports = function (gulp, config, $, args) {
 
 
         //引用webpack对js进行合并压缩提取，并生成html页面到dist下
-        gulp.task("build-js:" + projectName, ["build-dll-js:" + projectName], function (callback) {
+        gulp.task(taskName, [dllTaskName], function (callback) {
             webpack({
                 cache: true,
                 devtool: args.debug ? "source-map" : '',
@@ -106,7 +109,7 @@ module.exports = function (gulp, config, $, args) {
             });
         });
 
-
+        return taskName
     }
 
 };

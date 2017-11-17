@@ -34,16 +34,20 @@ var oPath = {
 
 module.exports = function (gulp, config, $, args) {
 
+    function getRequire(file) {
+        return require(file)(gulp, config, $, args);
+    }
+
     //sass
-    var pub_sass = require('../tasks_pub/pub-sass.js')(gulp, config, $, args);
-    pub_sass(projectName, {
+    var do_sass = require('../tasks_pub/pub-sass.js')(gulp, config, $, args);
+    var _sass_ = do_sass(projectName, {
         src: oPath.src.css,
         dest: oPath.dist.css
     });
 
     //png雪碧图
-    var pub_sprite_img = require('../tasks_pub/pub-sprite-img.js')(gulp, config, $, args);
-    pub_sprite_img(projectName, {
+    var do_sprite_img = require('../tasks_pub/pub-sprite-img.js')(gulp, config, $, args);
+    var _sprite_img_ = do_sprite_img(projectName, {
         src: oPath.src.img,
         dest: {
             img: oPath.dist.img,
@@ -59,13 +63,13 @@ module.exports = function (gulp, config, $, args) {
     });
 
     //svg合并
-    var pub_sprite_svg = require('../tasks_pub/pub-sprite-svg.js')(gulp, config, $, args);
-    pub_sprite_svg();
+    var do_sprite_svg = require('../tasks_pub/pub-sprite-svg.js')(gulp, config, $, args);
+    var _sprite_svg_ = do_sprite_svg();
 
 
     //合并、压缩、抽取js
-    var webpack_js = require('../tasks_pub/pub-webpack-js.js')(gulp, config, $, args);
-    webpack_js(projectName, {
+    var do_webpack_js = require('../tasks_pub/pub-webpack-js.js')(gulp, config, $, args);
+    var _webpack_js_ = do_webpack_js(projectName, {
         vendor: [
             './resources/lib/zepto.js'
         ]
@@ -86,10 +90,8 @@ module.exports = function (gulp, config, $, args) {
 
     gulp.task(projectName, function (cb) {
         $.sequence(
-            'spriteImage:'+projectName, 
-            ['build-js:' + projectName, 
-            'sass:'+projectName, 
-            'sprite:svg'], 
+            _sprite_img_, 
+            [_webpack_js_, _sass_, _sprite_svg_], 
             'watch:' + projectName, 
             cb
         );

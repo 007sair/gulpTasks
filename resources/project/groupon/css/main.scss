@@ -44,7 +44,7 @@ $sprite-icons: '../images/icon-sprite.png'; //sprite生成
 */
 
 @import "sprites";
-@include sprites($spritesheet-sprites, $sprite-icons);
+@include sprites($spritesheet-sprites);
 
 /**
 * Page styles

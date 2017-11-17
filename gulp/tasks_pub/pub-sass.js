@@ -6,6 +6,8 @@ module.exports = function (gulp, config, $, args) {
 
     return function (projectName, obj) {
 
+        let taskName = 'sass:' + projectName;
+
         if (!projectName) {
             console.log('请添加项目名称!');
             return false;
@@ -16,7 +18,7 @@ module.exports = function (gulp, config, $, args) {
             return false;
         }
 
-        gulp.task('sass:' + projectName, function () {
+        gulp.task(taskName, function () {
             if (args.debug) {
                 return gulp.src(obj.src)
                     .pipe($.sourcemaps.init())
@@ -44,6 +46,9 @@ module.exports = function (gulp, config, $, args) {
             }
 
         });
+
+        //返回任务名
+        return taskName
 
     }
 

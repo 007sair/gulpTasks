@@ -1,150 +1,114 @@
 /*
-scss变量包含了icon的编译状态信息，存储在各自icon命名的变量下。
-例如，一张名为icon-home.png的图标：
+SCSS variables are information about icon's compiled state, stored under its original file name
+
 .icon-home {
-	width: $icon-home-width;
+  width: $icon-home-width;
 }
 
-大型数组变量包含了单个图标的所有信息，例如：
-$icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
 
-在本节的底部，我们提供有关spritesheet本身的信息：
+At the bottom of this section, we provide information about the spritesheet itself
 $spritesheet: width height image $spritesheet-sprites;
 */
 $icon-clear-name: 'icon-clear';
-$icon-clear-x: 0rem;
-$icon-clear-y: 0rem;
-$icon-clear-offset-x: 0rem;
-$icon-clear-offset-y: 0rem;
-$icon-clear-width: 0.43rem;
-$icon-clear-height: 0.43rem;
-$icon-clear-total-width: 1.12rem;
-$icon-clear-total-height: 1.12rem;
+$icon-clear-x: 0px;
+$icon-clear-y: 0px;
+$icon-clear-offset-x: 0px;
+$icon-clear-offset-y: 0px;
+$icon-clear-width: 32px;
+$icon-clear-height: 32px;
+$icon-clear-total-width: 84px;
+$icon-clear-total-height: 84px;
 $icon-clear-image: 'dist/plus/img/icon-sprite.png';
-$icon-clear: (0rem, 0rem, 0rem, 0rem, 0.43rem, 0.43rem, 1.12rem, 1.12rem, 'dist/plus/img/icon-sprite.png', 'icon-clear', );
+$icon-clear: (0px, 0px, 0px, 0px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-clear', );
 $icon-fdj-name: 'icon-fdj';
-$icon-fdj-x: 0.69rem;
-$icon-fdj-y: 0rem;
-$icon-fdj-offset-x: -0.69333rem;
-$icon-fdj-offset-y: 0rem;
-$icon-fdj-width: 0.43rem;
-$icon-fdj-height: 0.43rem;
-$icon-fdj-total-width: 1.12rem;
-$icon-fdj-total-height: 1.12rem;
+$icon-fdj-x: 52px;
+$icon-fdj-y: 0px;
+$icon-fdj-offset-x: -52px;
+$icon-fdj-offset-y: 0px;
+$icon-fdj-width: 32px;
+$icon-fdj-height: 32px;
+$icon-fdj-total-width: 84px;
+$icon-fdj-total-height: 84px;
 $icon-fdj-image: 'dist/plus/img/icon-sprite.png';
-$icon-fdj: (0.69rem, 0rem, -0.69333rem, 0rem, 0.43rem, 0.43rem, 1.12rem, 1.12rem, 'dist/plus/img/icon-sprite.png', 'icon-fdj', );
+$icon-fdj: (52px, 0px, -52px, 0px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-fdj', );
 $icon-fire-name: 'icon-fire';
-$icon-fire-x: 0rem;
-$icon-fire-y: 0.69rem;
-$icon-fire-offset-x: 0rem;
-$icon-fire-offset-y: -0.69333rem;
-$icon-fire-width: 0.43rem;
-$icon-fire-height: 0.43rem;
-$icon-fire-total-width: 1.12rem;
-$icon-fire-total-height: 1.12rem;
+$icon-fire-x: 0px;
+$icon-fire-y: 52px;
+$icon-fire-offset-x: 0px;
+$icon-fire-offset-y: -52px;
+$icon-fire-width: 32px;
+$icon-fire-height: 32px;
+$icon-fire-total-width: 84px;
+$icon-fire-total-height: 84px;
 $icon-fire-image: 'dist/plus/img/icon-sprite.png';
-$icon-fire: (0rem, 0.69rem, 0rem, -0.69333rem, 0.43rem, 0.43rem, 1.12rem, 1.12rem, 'dist/plus/img/icon-sprite.png', 'icon-fire', );
+$icon-fire: (0px, 52px, 0px, -52px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-fire', );
 $icon-time-name: 'icon-time';
-$icon-time-x: 0.69rem;
-$icon-time-y: 0.69rem;
-$icon-time-offset-x: -0.69333rem;
-$icon-time-offset-y: -0.69333rem;
-$icon-time-width: 0.43rem;
-$icon-time-height: 0.43rem;
-$icon-time-total-width: 1.12rem;
-$icon-time-total-height: 1.12rem;
+$icon-time-x: 52px;
+$icon-time-y: 52px;
+$icon-time-offset-x: -52px;
+$icon-time-offset-y: -52px;
+$icon-time-width: 32px;
+$icon-time-height: 32px;
+$icon-time-total-width: 84px;
+$icon-time-total-height: 84px;
 $icon-time-image: 'dist/plus/img/icon-sprite.png';
-$icon-time: (0.69rem, 0.69rem, -0.69333rem, -0.69333rem, 0.43rem, 0.43rem, 1.12rem, 1.12rem, 'dist/plus/img/icon-sprite.png', 'icon-time', );
-$spritesheet-width: 1.12rem;
-$spritesheet-height: 1.12rem;
+$icon-time: (52px, 52px, -52px, -52px, 32px, 32px, 84px, 84px, 'dist/plus/img/icon-sprite.png', 'icon-time', );
+$spritesheet-width: 84px;
+$spritesheet-height: 84px;
 $spritesheet-image: 'dist/plus/img/icon-sprite.png';
 $spritesheet-sprites: ($icon-clear, $icon-fdj, $icon-fire, $icon-time, );
-$spritesheet: (1.12rem, 1.12rem, 'dist/plus/img/icon-sprite.png', $spritesheet-sprites, );
+$spritesheet: (84px, 84px, 'dist/plus/img/icon-sprite.png', $spritesheet-sprites, );
 
 /*
-以下mixins旨在与数组类型变量一起使用，也可单独使用！
+The provided mixins are intended to be used with the array-like variables
+
 .icon-home {
-	@include sprite-width($icon-home);
+  @include sprite-width($icon-home);
 }
 
 .icon-email {
-	@include sprite($icon-email);
+  @include sprite($icon-email);
 }
 */
 @mixin sprite-width($sprite) {
-	width: nth($sprite, 5);
+  width: nth($sprite, 5);
 }
 
 @mixin sprite-height($sprite) {
-	height: nth($sprite, 6);
+  height: nth($sprite, 6);
 }
 
 @mixin sprite-position($sprite) {
-	$sprite-offset-x: nth($sprite, 3);
-	$sprite-offset-y: nth($sprite, 4);
-
-	/* 
-	将定位换成百分比单位
-	background-position百分比单位
-	参考自：https://github.com/banricho/webLog/issues/1
-	*/
-	$offset_x: nth($sprite, 3);
-	$offset_y: nth($sprite, 4);
-	$width: nth($sprite, 5);
-	$height: nth($sprite, 6);
-	$total_width: nth($sprite, 7);
-	$total_height: nth($sprite, 8);
-
-	//分母为0时让其为1rem（解决除法分母为0时报错问题）
-	$x_fm: if( (($width - $total_width) == 0) , 1rem, ($width - $total_width));
-	$y_fm: if( (($height - $total_height) == 0) , 1rem, ($height - $total_height));
-
-	background-position: percentage($offset_x / $x_fm) percentage($offset_y / $y_fm);
-
-	/* rem单位 */
-	//background-position: $sprite-offset-x  $sprite-offset-y;
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
 }
 
-@mixin sprite-image($sprite, $url: 'dist/plus/img/icon-sprite.png') {
-	background-image: url(#{$url});
-	background-size: 1.12rem 1.12rem;
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
 }
 
-@mixin sprite($sprite, $url: 'dist/plus/img/icon-sprite.png') {
-	@include sprite-image($sprite, $url);
-	@include sprite-position($sprite);
-	@include sprite-width($sprite);
-	@include sprite-height($sprite);
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
 }
-
 
 /*
-sprites混合器会直接生成样式，也能在scss内部被调用：
-@include sprites($spritesheet-sprites, $url);
-用法：
-@param $spritesheet-sprites 	数组类型，所有图标命名的变量集合
-@param $url  					图片地址，默认可不传入，使用gulp生成的路径，也可从外部传入自定义路径
-$url使用场景：
-	$online: true; 	//定义一个变量，标识当前使用环境 false or true
-	$sprite-icons: '../images/icon-sprite.png'; //图标地址变量，默认值为gulp生成的
-	@if $online { //如果是线上，将图标地址变量重新赋值
-		$sprite-icons: 'http://xxx.xxx.icon-sprite.png'; //线上链接
-	}
-	//再将图标地址变量当第二个参数传入即可
-	@include sprites($spritesheet-sprites, $sprite-icons);
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
 */
-@mixin sprites($sprites, $url: 'dist/plus/img/icon-sprite.png') {
-	%sprite-common { //提取图标样式公共代码
-		background-image: url(#{$url});
-		background-size: 1.12rem 1.12rem;
-	}
-	@each $sprite in $sprites { //遍历每个图标，生成图标样式
-		$sprite-name: nth($sprite, 10);
-		.#{$sprite-name} {
-			@extend %sprite-common;
-			@include sprite-width($sprite);
-			@include sprite-height($sprite);
-			@include sprite-position($sprite);
-		}
-	}
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
 }

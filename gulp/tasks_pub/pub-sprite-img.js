@@ -6,6 +6,8 @@ module.exports = function (gulp, config, $, args) {
 
     return function (projectName, obj) {
 
+        let taskName = 'sprite-img:' + projectName;
+
         if (!projectName) {
             console.log('请添加项目名称!');
             return false;
@@ -17,13 +19,15 @@ module.exports = function (gulp, config, $, args) {
         }
 
         //合并src/sprites目录下的png到dist/images下，并生成_sprites.scss到src/css下
-        gulp.task('spriteImage:' + projectName, function (done) {
+        gulp.task(taskName, function (done) {
             var spriteData = gulp.src(obj.src)
                 .pipe($.spritesmith(obj.config));
             spriteData.img.pipe($.imagemin()).pipe(gulp.dest(obj.dest.img));
             spriteData.css.pipe(gulp.dest(obj.dest.css));
             done()
         });
+
+        return taskName
     }
 
 };
